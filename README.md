@@ -8,7 +8,7 @@ axios - для запросов на сервер, пакет axios
 
 Визуальное представление:
 
-![Image alt](https://github.com/Maksim2103/Practical_task/blob/main/src/Image/image.png)
+![Image alt](https://github.com/Maksim2103/Practical_task/blob/main/src/Image/1.jpg)
 
 Описание страниц
 
@@ -29,7 +29,11 @@ Photos - страница с картинками
 
 Скрин: страница с изменным видом по 2 на строку и примером смены цвета у карточке:
 
+![Image alt](https://github.com/Maksim2103/Practical_task/blob/main/src/Image/2.jpg)
+
 Скрин: пример детального просмотра при клике на кнопку "View"
+
+![Image alt](https://github.com/Maksim2103/Practical_task/blob/main/src/Image/3.jpg)
 
 Также есть кнопка вверху "Add Article" - она открывает модалку с формой, где выводятся поля "title" и "body" и кнопка "Create", при клике на которую в стор добавляется новая запись и она добавляется последний в общий список (Ещё нужно записи дать id)
 
