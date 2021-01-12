@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+Задание на React + Redux + запросы
+Для разработки нам потребуются следующее:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Redux - пакеты redux и react-redux
+HashRouter - для меню и отдельных страниц из пакета react-router-dom
+Bootstrap - для визуализации, пакет react-bootstrap и bootstrap
+axios - для запросов на сервер, пакет axios
 
-## Available Scripts
+Визуальное представление:
 
-In the project directory, you can run:
+![Image alt](https://github.com/Maksim2103/Practical_task/blob/main/src/Image/image.png)
 
-### `yarn start`
+Описание страниц
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Компонент будет содержать 3 страница (реализуем через HashRouter):
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Articles - страница с постами (она же и на скрине выше)
+Users - страница с пользователями
+Photos - страница с картинками
+Функционал страницы с постами
 
-### `yarn test`
+Получаем данные отсюда: https://jsonplaceholder.typicode.com/posts через axios.get() и записываем в стор при загрузки этой страницы
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Выводим 3 записи по умолчанию, внизу кнопка "Show more" - при клике на которую из стора получаем ещё 3 записи, итого их 6, кнопку можно кликать до тех пор, пока все записи не будут получены, когда они кончаться, кнопка скрывается.
 
-### `yarn build`
+Вверху есть кнопка, которая переключает отображения по 3 или по 2 карточки на строку "Make big cards" или "Make small cards". Скрин ниже
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+У каждой записи есть три кнопки "View" - при клике открывается модалка с детальной информацией записи, "Change color" - меняет цвет карточки (любые 3 цвета придумайте) - скрин ниже, "Edit" - модалка с возможность изменить запись (об этом ещё ниже читайте)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Скрин: страница с изменным видом по 2 на строку и примером смены цвета у карточке:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Скрин: пример детального просмотра при клике на кнопку "View"
 
-### `yarn eject`
+Также есть кнопка вверху "Add Article" - она открывает модалку с формой, где выводятся поля "title" и "body" и кнопка "Create", при клике на которую в стор добавляется новая запись и она добавляется последний в общий список (Ещё нужно записи дать id)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+У каждой записи выводиться кнопка "Edit" при клике на которую открывается такая же модалка, только с заполненными данными данной записи и кнопка "Update", которая меняет в сторе нашу запись
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+У каждой записи выводиться кнопка "Delete" при клике на которую появляется модалка "Do you really want to delete this card?" и две кнопки "Yes" и "No". При клике на "Yes" - запись удаляется из стора, модалка закрывается, на "No" - просто закрываем модалку
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Страница с пользователями
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Получаем данные отсюда: https://jsonplaceholder.typicode.com/users через axios.get() и записываем в стор при загрузки этой страницы.
 
-## Learn More
+Аналогичный функционал с постами, только выводим данные другие. В карточке - name, email, phone, а в модалках на создание и изменение все оставшиеся поля, кроме address и company.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Страница с фото
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Получаем данные отсюда: https://jsonplaceholder.typicode.com/photos через axios.get() и записываем в стор при загрузки этой страницы.
 
-### Code Splitting
+Аналогичный функционал с постами, только выводим данные другие. В карточке - title и отображаем само фото (<img url={item.url} />).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+В модалке на создание и редактирование только два поля title и image url (Ссылка на картинку).
